@@ -1,3 +1,5 @@
+//subindo o servidor e iniciando a aplicação
+
 const express = require('express')
 const routes = require('./routes')
 
