@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
         nome: {type:DataTypes.STRING,
             validate: {
                 funcaoValidadora: function(dado) {
-                    if (dado.length < 3) 
+                    if (dado.length < 3)
                         throw new Error('o campo deve ter mais de 3 caracteres')
 
                 }
@@ -39,8 +39,10 @@ module.exports = (sequelize, DataTypes) => {
         })
         Pessoas.hasMany(models.Matriculas, {
             foreignKey: 'estudante_id'
+            scope: {status: 'confirmado'}
+            as: 'aulasMatriculadas'
         })
 
-    };
+    }
     return Pessoas;
 };
